@@ -1,6 +1,7 @@
 package com.example.perdicate;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -25,5 +26,7 @@ public class Main {
         // Using stream
         System.out.println("All numbers addition:");
         System.out.println(SolutionUtility.addElements(List.of(1,2,3,4,5,6,7,8,9,10), TestCaseUtility::sumAll));
+
+
     }
 }
