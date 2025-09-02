@@ -12,13 +12,13 @@ package com.example.NestedClass;
      }
 
     private static  void displayOuterTwo(){
-        System.out.println(ten + twenty);
+//        System.out.println(ten + twenty);
     }
 
      static class StaticInnerClass{
          public  void display(){
              System.out.println("Outer Class Static Variable: "+ ten);
-             System.out.println("Outer Class Instance Variable : "+ twenty); // not allowed
+//             System.out.println("Outer Class Instance Variable : "+ twenty); // not allowed
 
              OuterClassOne obj = new OuterClassOne();
              obj.displayOuter();
@@ -38,7 +38,7 @@ but if static inner class is private then we can not create an object of it outs
 
  class OuterClassTwo{
 
-     private static class StaticInnerClassTwo{
+      static class StaticInnerClassTwo{
          static int  innerStaticVariable = 10;
          private static int innerPrivateStaticVariable = 20;
          int innerDefaultVariable = 30;
@@ -61,6 +61,17 @@ but if static inner class is private then we can not create an object of it outs
          new StaticInnerClassTwo().display();
 
          StaticInnerClassTwo.display(true);
+     }
+ }
+
+ public class StaticNestedClass{
+     public static void main(String[] args) {
+         OuterClassOne.StaticInnerClass obj = new OuterClassOne.StaticInnerClass();
+
+         obj.display();
+
+         OuterClassTwo outerObj = new OuterClassTwo();
+         outerObj.displayTwo();
      }
  }
 
