@@ -4,14 +4,14 @@ import java.io.*;
 
 public class Deserialization {
 
-    Person person;
+    User user;
     public static void deserialize() {
 
         try {
             FileInputStream fis = new FileInputStream("op.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            Person person = (Person) ois.readObject();
-            System.out.println(person);
+            User user = (User) ois.readObject();
+            System.out.println(user);
 
 
         } catch (FileNotFoundException exception) {

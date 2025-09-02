@@ -2,19 +2,23 @@ package com.example.serilization_decerialization;
 
 import java.io.Serializable;
 
-public class Person implements Serializable {
+public class User implements Serializable {
 
     private String name;
+    private String email;
+    transient private String password;
     private int age;
     private Address address;
 
-    public Person(String name, int age, Address address) {
-        this.name = name;
-        this.age = age;
-        this.address = address;
+    public User() {
     }
 
-    public Person() {
+    public User(String name, String email, String password, int age, Address address) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+        this.address = address;
     }
 
     public String getName() {
@@ -23,6 +27,22 @@ public class Person implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getAge() {
@@ -41,11 +61,12 @@ public class Person implements Serializable {
         this.address = address;
     }
 
-
     @Override
     public String toString() {
-        return "Person{" +
+        return "User{" +
                 "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", age=" + age +
                 ", address=" + address +
                 '}';
