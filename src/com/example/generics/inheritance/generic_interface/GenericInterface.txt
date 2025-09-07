@@ -1,0 +1,104 @@
+Generic inheritance is the ability for a generic class to extend or implement another generic class or interface. It allows you to create a hierarchy of types where both the base and derived classes use type parameters.
+
+-----
+
+## Extending a Generic Class
+
+You can extend a generic class by specifying the type parameter for the parent class. This creates a more specialized class.
+
+For example, consider a generic `Box` class:
+
+```java
+public class Box<T> {
+    private T item;
+
+    public void setItem(T item) {
+        this.item = item;
+    }
+
+    public T getItem() {
+        return this.item;
+    }
+}
+```
+
+Now, let's create a specialized generic class called `ColoredBox` that inherits from `Box`. `ColoredBox` adds a `color` property.
+
+```java
+// ColoredBox is also generic, but it extends a generic parent, Box<T>.
+public class ColoredBox<T> extends Box<T> {
+    private String color;
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return this.color;
+    }
+}
+```
+
+In this example, `ColoredBox<T>` inherits the `setItem` and `getItem` methods from `Box<T>`, and it also has its own `setColor` and `getColor` methods. An instance of `ColoredBox<T>` can be used like this:
+
+```java
+ColoredBox<String> redBox = new ColoredBox<>();
+redBox.setItem("Apple"); // Inherited from Box<String>
+redBox.setColor("Red");  // Specific to ColoredBox<String>
+
+System.out.println("Item: " + redBox.getItem() + ", Color: " + redBox.getColor());
+// Output: Item: Apple, Color: Red
+```
+
+-----
+
+## Implementing a Generic Interface
+
+Generic classes can also implement generic interfaces. This is common when building a custom data structure that needs to conform to a standard contract, like `List` or `Comparable`.
+
+For example, let's define a generic `Container` interface:
+
+```java
+public interface Container<T> {
+    void add(T item);
+    T get();
+}
+```
+
+Now, we can create a generic class `SimpleContainer` that implements this interface:
+
+```java
+// SimpleContainer implements the generic interface Container.
+public class SimpleContainer<T> implements Container<T> {
+    private T item;
+
+    @Override
+    public void add(T item) {
+        this.item = item;
+    }
+
+    @Override
+    public T get() {
+        return this.item;
+    }
+}
+```
+
+This allows you to create instances that are both type-safe and conform to the `Container` interface:
+
+```java
+Container<Integer> intContainer = new SimpleContainer<>();
+intContainer.add(100);
+System.out.println("Value from container: " + intContainer.get());
+// Output: Value from container: 100
+```
+
+-----
+
+## Key Principles
+
+  * **Type Parameter Matching**: The type parameter of the child class must match or be a subtype of the parent class's type parameter. For instance, `class StringBox extends Box<String>` is valid, but `class MyBox<T> extends Box<String>` is not.
+
+  * **Subtyping**: A generic class with a specific type parameter is not a subtype of the generic class with a different type parameter. For example, `Box<String>` is **not** a subtype of `Box<Object>`. While `String` is a subtype of `Object`, `Box<String>` and `Box<Object>` are distinct types. This is a critical concept to prevent runtime errors.
+
+  * **Wildcards**: For more flexible generic inheritance, you can use wildcards (`?`). For example, `Box<? extends Number>` can hold a box of `Integer`, `Double`, or any other class that extends `Number`.
