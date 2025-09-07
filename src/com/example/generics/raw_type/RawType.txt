@@ -1,0 +1,76 @@
+A raw type is the name of a generic class or interface without any type arguments. It's essentially the non-generic version of a generic type, and using it can bypass the compiler's type-safety checks.
+
+-----
+
+## What is a Raw Type?
+
+When you create a generic class like `Box<T>`, the raw type is simply `Box`. Here's an example to illustrate the difference:
+
+**Generic Type:** `Box<String> box = new Box<>();` (This is the **type-safe** way)
+**Raw Type:** `Box rawBox = new Box();` (This is a **raw type**)
+
+In the raw type example, the compiler doesn't know what kind of object the `rawBox` is supposed to hold. It defaults to treating it as `Box<Object>`.
+
+-----
+
+## Why You Should Avoid Raw Types
+
+Using raw types is strongly discouraged because they sacrifice **type safety**, which is the primary benefit of generics. When you use a raw type, the compiler can't check for type mismatches, and you risk a `ClassCastException` at runtime.
+
+Consider this example:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class RawTypeExample {
+    public static void main(String[] args) {
+
+        // Raw type list - this is bad practice
+        List rawList = new ArrayList();
+        rawList.add("Hello");
+        rawList.add(123); // Compiler allows this, but it's a mistake
+
+        // Now, let's try to retrieve the items
+        String str = (String) rawList.get(0); // This works
+        System.out.println(str);
+
+        Integer number = (Integer) rawList.get(1); // This works
+        System.out.println(number);
+
+        try {
+            String anotherStr = (String) rawList.get(1); // This will fail!
+        } catch (ClassCastException e) {
+            System.out.println("Caught a ClassCastException: " + e.getMessage());
+        }
+    }
+}
+```
+
+In the `rawList` example, the compiler doesn't raise any warnings when you add an `Integer` to a list that was intended for `String` objects. The error is only discovered at runtime when the program tries to cast an `Integer` to a `String`, resulting in a `ClassCastException`.
+
+-----
+
+## The Correct Alternative
+
+The correct way to handle this is to use a parameterized type, which tells the compiler exactly what the list should hold.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ParameterizedTypeExample {
+    public static void main(String[] args) {
+
+        // Parameterized list - this is the correct way
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Hello");
+        // stringList.add(123); // COMPILE-TIME ERROR! This is the benefit of generics.
+
+        String str = stringList.get(0);
+        System.out.println(str);
+    }
+}
+```
+
+By using a parameterized type like `List<String>`, you get compile-time checking, which is much safer and easier to debug than a runtime exception. The compiler immediately flags the line `stringList.add(123)` as an error, preventing the mistake before the code is ever run.
