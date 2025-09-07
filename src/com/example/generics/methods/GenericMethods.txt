@@ -1,0 +1,67 @@
+Generic methods are methods that are defined with a type parameter, allowing them to work with different types of data while maintaining type safety. Unlike generic classes, the type parameter for a generic method is declared in the method signature itself, not in the class definition. This makes the method flexible, as it can operate on different types each time it's called, regardless of whether the class it belongs to is generic or not.
+
+-----
+
+## Defining a Generic Method
+
+To define a generic method, you place the type parameter `<T>` before the method's return type in the method signature. This declares `T` as a placeholder for a specific type that will be provided when the method is called.
+
+Here is an example of a simple generic method that prints an array of any type:
+
+```java
+public class GenericMethods {
+
+    // The <E> before the return type void indicates this is a generic method.
+    public <E> void printArray(E[] array) {
+        for (E element : array) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+}
+```
+
+In this example, `<E>` is the type parameter. It's a convention to use `E` for Element. The method can now accept an array of any type and print its contents.
+
+-----
+
+## Calling a Generic Method
+
+You call a generic method just like any other method. The compiler automatically **infers** the type parameter based on the argument you pass to the method. You don't usually need to explicitly specify the type.
+
+Let's see how to use the `printArray` method:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        GenericMethods gm = new GenericMethods();
+
+        // Calling the generic method with an Integer array.
+        Integer[] intArray = {1, 2, 3, 4, 5};
+        System.out.print("Integer Array: ");
+        gm.printArray(intArray); // Output: Integer Array: 1 2 3 4 5
+
+        System.out.println();
+
+        // Calling the same generic method with a String array.
+        String[] stringArray = {"Hello", "World", "Generics"};
+        System.out.print("String Array: ");
+        gm.printArray(stringArray); // Output: String Array: Hello World Generics
+
+        System.out.println();
+
+        // You can also explicitly specify the type, though it's usually not necessary.
+        Double[] doubleArray = {1.1, 2.2, 3.3};
+        System.out.print("Double Array: ");
+        gm.<Double>printArray(doubleArray); // Output: Double Array: 1.1 2.2 3.3
+    }
+}
+```
+
+In both cases, the single `printArray` method works correctly with different data types, all while the compiler enforces type safety.  This prevents runtime errors that would occur with a method using the `Object` type.
+
+-----
+
+## Benefits of Generic Methods
+
+Generic methods are useful because they allow you to write **reusable, type-safe code** for algorithms that are independent of the data type. They are a powerful tool for tasks like sorting collections, finding elements, or performing other operations that are common across different data types.
