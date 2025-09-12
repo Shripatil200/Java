@@ -1,0 +1,29 @@
+Multiple Bounds
+You can also apply multiple bounds to a type parameter using the ampersand (&). This is useful when you want a type to extend a class and implement one or more interfaces. The class must be listed first.
+
+Java
+
+public class MyClass<T extends MyClass & MyInterface> {
+    // ...
+}
+This syntax allows T to be any type that is a subclass of MyClass and also implements MyInterface.
+
+The extends Keyword
+It's important to note that the extends keyword in generics is used for both classes and interfaces. When bounding with an interface, it still uses extends rather than implements.  This is a special rule in generic syntax.
+
+
+
+
+
+
+//        public class  Multibound <T extends  Something & Vehical>
+
+
+//        class Similar extends Car implements Something - Allowed
+//        class Similar implements Vehical, Something  - Allowed
+//        class Similar implements Something, Vihical  - Allowed
+//        class Similar extends ArrayList implement Vehical, Something, Runnable, Predicate  - Allowed
+
+
+
+//        class Dissimilar extends ArrayList implements  Vehical   - not allowed because of not implemented both interfaces or there child classes
