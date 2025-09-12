@@ -15,12 +15,17 @@ class Demo1 extends ArrayList implements Predicate {
 }
 
 
-class Demo2 extends Thread implements  Predicate{
+class Demo2 extends Thread implements  Predicate, Comparable{
 
 
     @Override
     public boolean test(Object o) {
         return false;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }
 
@@ -38,7 +43,7 @@ public class Main {
 
     public static void main(String[] args) {
 //        Test<Demo1> demo = new Test<>();   // Not allowed because Demo didn't implemented Runnable
-        Test<Demo2> test = new Test<>();
+        Test<Demo2> test = new Test<>();   // Allowed even required implementations + another implementation are provided.
 
         test.print();
 
