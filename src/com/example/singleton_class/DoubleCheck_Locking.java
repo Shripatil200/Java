@@ -1,5 +1,9 @@
 package com.example.singleton_class;
 
+/*
+👉 Efficient + Thread-safe.
+❌ Different core of cpu can generate more than one instances.
+ */
 class DBConnectionDoubleCheck {
     private static volatile DBConnectionDoubleCheck instance;
 
