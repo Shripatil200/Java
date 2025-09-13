@@ -1,0 +1,14 @@
+Singleton Class:
+
+there will be  scenarios where you think there should be only one instance of a class -  such as class that create connection for database.
+
+There shouldn't be more than ONE instances of a class
+
+there are multiple ways to create singleton classes :
+
+-Eager Initialization
+-Lazy Initialization
+-Synchronization Block
+-Double Check Lock(there is a memory issue, resolved through instance variable)
+-Bill Pugh Solution
+-Enum Singleton
