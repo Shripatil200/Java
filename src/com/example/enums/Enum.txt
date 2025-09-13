@@ -1,0 +1,12 @@
+ENUM :
+-it is an actual class;
+-It has a collection of CONSTANTS (variables which value can not be changed).
+-It's CONSTANTS are static final implicitly.
+-It can not extend any class, as it internally extends java.lang.ENUM class.
+-It can implement interfaces.
+-It can have variables, constructor, methods.
+-It can not bew initiated (as its constructor will be private only, even given default, in bytecode it make it private).
+-No other class can extend ENUM class (because its final by default).
+-It can have abstract methods, and all the constants should implement that abstract method.
+
+
