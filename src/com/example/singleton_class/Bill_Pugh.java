@@ -1,5 +1,8 @@
 package com.example.singleton_class;
 
+/*
+Most widely recommended (simple, thread-safe, lazy).
+ */
 
 class DBConnectionBillPugh {
     private DBConnectionBillPugh() {
