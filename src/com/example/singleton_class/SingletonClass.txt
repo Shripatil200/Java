@@ -11,4 +11,7 @@ there are multiple ways to create singleton classes :
 -Synchronization Block
 -Double Check Lock(there is a memory issue, resolved through instance variable)
 -Bill Pugh Solution
--Enum Singleton
+-Enum Singleton(default singleton - as JVM have only one copy(snapshot))
+
+
+
