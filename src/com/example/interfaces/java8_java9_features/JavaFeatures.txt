@@ -1,0 +1,18 @@
+Java8 and Java9 features:
+
+Java 8 features: default method , static method.
+java 9 features: private static method, private method.
+
+
+Why default introduced:
+
+case: suppose we have an interface implemented by multiple classes.
+      and now we want to add a new method to that interface,
+      which is working on same logic in every implemented class.
+      if we create an abstract method we have to override it,
+      in every implemented class. which will cost extra recompilation cost.
+      to avoid this case java developer came with an idea of default method.
+      we simply create a method with default modifier and add implementation to it.
+      and because of inheritance all implementing classes inherit it.
+      so we don't have to make change in every class.
+      we can also override it and give specific logic if required.
