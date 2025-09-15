@@ -1,7 +1,10 @@
 Java8 and Java9 features:
 
-Java 8 features: default method , static method.
+Java 8 features: default method , static method, Functional interface, lambda expression.
+
+
 java 9 features: private static method, private method.
+
 
 
 Why default introduced:
@@ -16,3 +19,14 @@ case: suppose we have an interface implemented by multiple classes.
       and because of inheritance all implementing classes inherit it.
       so we don't have to make change in every class.
       we can also override it and give specific logic if required.
+
+
+
+Functional Interface :
+      functional interface are interface with only one abstract method.
+      it can have multiple non-abstract methods.
+
+lambda expression :
+      Lambda expression is a way to implement functional interface.
+      it is used to replace anonymous classes for functional interface.
+      it helps to reduce code.
