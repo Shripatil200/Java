@@ -1,0 +1,20 @@
+Nested Interface:
+
+
+Generally it is declared to group, logically related interfaces and nested interfaces.
+
+
+There can be two types of nested interface:
+1) Interface inside another interface.
+2) Interface inside another class.
+
+Interface inside interface:
+    -Inner interface must be public.
+    -We can create reference using OuterInterface.InnerInterface
+
+Interface inside class:
+    -Inner interface can have any access modifier (public, private, protected, default).
+    -We can create instance using OuterClass.InnerInterface.
+
+Note: When you implement outer interface, inner interface implementation is optional and vice versa.
+
