@@ -1,5 +1,5 @@
 Git Commands Cheat Sheet
-1. Setup & Configuration
+## 1. Setup & Configuration
 
 git config --global user.name "Your Name"
 Set your Git username globally
@@ -13,7 +13,7 @@ Fix line endings on Windows (recommended)
 git config --list
 Show all Git config settings
 
-2. Creating & Cloning Repos
+## 2. Creating & Cloning Repos
 
 git init
 Initialize a new Git repository in the current folder
@@ -21,7 +21,7 @@ Initialize a new Git repository in the current folder
 git clone <repository_url>
 Clone a remote repo locally
 
-3. Basic Snapshotting
+## 3. Basic Snapshotting
 
 git status
 Show current branch and staged/untracked files
@@ -44,7 +44,7 @@ Show unstaged changes
 git diff --staged
 Show changes staged for commit
 
-4. Branching & Merging
+## 4. Branching & Merging
 
 git branch
 List all branches, show current with *
@@ -67,7 +67,7 @@ Delete a branch (if merged)
 git branch -D <branch-name>
 Force delete a branch (even if unmerged)
 
-5. Remote Repositories
+## 5. Remote Repositories
 
 git remote -v
 List remote repositories
@@ -90,7 +90,7 @@ Push commits to remote branch
 git push --set-upstream origin <branch>
 Push branch and set upstream tracking
 
-6. Undoing Changes
+## 6. Undoing Changes
 
 git reset <file>
 Unstage a file
@@ -104,7 +104,7 @@ Discard changes in working directory for a file
 git revert <commit>
 Create a new commit that undoes a previous commit
 
-7. Stashing
+## 7. Stashing
 
 git stash
 Save current uncommitted changes temporarily
@@ -118,7 +118,7 @@ Reapply latest stash (keeps stash)
 git stash pop
 Reapply and remove latest stash
 
-8. Inspecting History
+## 8. Inspecting History
 
 git log
 Show commit history
@@ -132,7 +132,7 @@ Show details of a specific commit
 git blame <file>
 Show who changed each line of a file
 
-9. Tags
+## 9. Tags
 
 git tag
 List tags
@@ -146,7 +146,7 @@ Push a tag to remote
 git push --tags
 Push all tags
 
-10. Advanced
+## 10. Advanced
 
 git cherry-pick <commit>
 Apply a commit from another branch
@@ -157,6 +157,6 @@ Reapply commits on top of another branch
 git bisect
 Binary search to find the commit introducing a bug
 
-Bonus: Windows CRLF Fix
+## Bonus: Windows CRLF Fix
 
 git config --global core.autocrlf true
