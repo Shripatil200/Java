@@ -1,11 +1,11 @@
 # Functional interface:
 
 Functional interface are interface with only one abstract method.
-Functional interface can have any number of * static * and * default * methods, as they are not abstract.
+Functional interface can have any number of *static* and *default* methods, as they are not abstract.
 Functional interface enables functional programming and lambda expressions.
-** @FunctionalInterface ** annotation is used to define functional interface. while it is optional it is recommended to
+**@FunctionalInterface** annotation is used to define functional interface. while it is optional it is recommended to
 use annotation.
-** @FunctionalInterface ** annotation force interface for not to have more than one abstract method.
+**@FunctionalInterface** annotation force interface for not to have more than one abstract method.
 
 This interface can not implement another interface with one or more abstract method (because if it does then by
 inheritance it will have parents abstract methods too so it will not be functional interface anymore)
@@ -17,7 +17,7 @@ We can use functional interface to run utility methods dynamically.
 there are some predefined functional interfaces in java such as
 
 1. Predicate
-   '''java
+   ```java
    @FunctionalInterface
    public interface Predicate<T> {
 
@@ -32,7 +32,7 @@ there are some predefined functional interfaces in java such as
       }
 
 2. Supplier
-   '''java
+   ```java
    @FunctionalInterface
    public interface Supplier<T> {
 
@@ -45,7 +45,7 @@ there are some predefined functional interfaces in java such as
       }
 
 3. Consumer
-   '''java
+   ```java
    @FunctionalInterface
    public interface Consumer<T> {
 
@@ -58,7 +58,7 @@ there are some predefined functional interfaces in java such as
       }
 
 4. Function
-   '''java
+   ```java
    @FunctionalInterface
    public interface Function<T, R> {
 
