@@ -29,7 +29,7 @@ there are some predefined functional interfaces in java such as
     * otherwise {@code false}
       */
       boolean test(T t);
-      }'''
+      }
 
 2. Supplier
    '''java
@@ -42,7 +42,7 @@ there are some predefined functional interfaces in java such as
     * @return a result
       */
       T get();
-      }'''
+      }
 
 3. Consumer
    '''java
@@ -55,7 +55,7 @@ there are some predefined functional interfaces in java such as
     * @param t the input argument
       */
       void accept(T t);
-      }'''
+      }
 
 4. Function
    '''java
@@ -69,4 +69,4 @@ there are some predefined functional interfaces in java such as
     * @return the function result
       */
       R apply(T t);
-      }'''
+      }
