@@ -129,14 +129,14 @@ public static void printLogValues(List<Integer>... logNumberList){ // variable a
     ex: 
     ```java
    @Repeatable(Categories.class)
-   public @Interface Category{
+   public @interface Category{
 
       string name();
    }
    ```
    ```java
    @Retention(RetentionPolicy.RUNTIME)
-   public @Interface Categories{
+   public @interface Categories{
    
     Category[] value();
    }
@@ -169,7 +169,7 @@ public static void printLogValues(List<Integer>... logNumberList){ // variable a
    
     ex: 
     ```java
-   public @Interface MyCustomAnnotation{
+   public @interface MyCustomAnnotation{
         String name();
    }
    ```
