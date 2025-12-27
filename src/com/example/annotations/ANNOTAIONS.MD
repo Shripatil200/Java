@@ -161,7 +161,7 @@ public static void printLogValues(List<Integer>... logNumberList){ // variable a
    public @interface MyCustomAnnotation{
    }
    ```
-   ```java
+
 
 2. Creating annotation with method (its more like a field).
     - No parameter, no body.
